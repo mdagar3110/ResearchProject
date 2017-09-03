@@ -38,6 +38,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.17.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.87.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ClosedXML.0.87.1\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.1\lib\net45\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -55,14 +66,423 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Admin Reports.aspx" />
+    <Content Include="Admin\ChangePassword.aspx" />
+    <Content Include="Admin\Registration.aspx" />
+    <Content Include="Admin\ResetPassword.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Images\Registeration.aspx" />
+    <Content Include="loader.gif" />
+    <Content Include="Login.aspx" />
+    <Content Include="ManageUsers.aspx" />
+    <Content Include="NotFound.aspx" />
+    <Content Include="Survey.aspx" />
+    <Content Include="UILayer\css\bootstrap.min.css" />
+    <Content Include="UILayer\css\custom%27.css" />
+    <Content Include="UILayer\css\font-awesome.css" />
+    <Content Include="UILayer\css\mobile.css" />
+    <Content Include="UILayer\css\mobileMaster.css" />
+    <Content Include="UILayer\css\normalize.css" />
+    <Content Include="UILayer\css\owl-carousel.css" />
+    <Content Include="UILayer\css\style.css" />
+    <Content Include="UILayer\css\styleMaster.css" />
+    <Content Include="UILayer\fonts\fontawesome-webfont.svg" />
+    <Content Include="UILayer\fonts\lato-regular-webfont.svg" />
+    <Content Include="UILayer\fonts\nixieone-regular-webfont.svg" />
+    <Content Include="UILayer\images\1.jpg" />
+    <Content Include="UILayer\images\2.jpg" />
+    <Content Include="UILayer\images\3.jpg" />
+    <Content Include="UILayer\images\4.jpg" />
+    <Content Include="UILayer\images\AjaxLoader.gif" />
+    <Content Include="UILayer\images\alpines-mountain.jpg" />
+    <Content Include="UILayer\images\bg-separator.png" />
+    <Content Include="UILayer\images\grabbing.png" />
+    <Content Include="UILayer\images\group-yoga.jpg" />
+    <Content Include="UILayer\images\icon-facebook.png" />
+    <Content Include="UILayer\images\icon-googleplus.png" />
+    <Content Include="UILayer\images\icon-pinterest.png" />
+    <Content Include="UILayer\images\icon-twitter.png" />
+    <Content Include="UILayer\images\icons.png" />
+    <Content Include="UILayer\images\images %281%29.png" />
+    <Content Include="UILayer\images\instructor1.jpg" />
+    <Content Include="UILayer\images\instructor2.jpg" />
+    <Content Include="UILayer\images\instructor3.jpg" />
+    <Content Include="UILayer\images\instructor4.jpg" />
+    <Content Include="UILayer\images\lady-in-yoga.jpg" />
+    <Content Include="UILayer\images\logo %281%29.png" />
+    <Content Include="UILayer\images\logo.png" />
+    <Content Include="UILayer\images\lying-yoga.jpg" />
+    <Content Include="UILayer\images\lying-yoga2.jpg" />
+    <Content Include="UILayer\images\mobile\bg-mobile.png" />
+    <Content Include="UILayer\images\mobile\mobile-close.png" />
+    <Content Include="UILayer\images\mobile\mobile-collapse.png" />
+    <Content Include="UILayer\images\mobile\mobile-expand.png" />
+    <Content Include="UILayer\images\mobile\mobile-menu.png" />
+    <Content Include="UILayer\images\Oakland.jpg" />
+    <Content Include="UILayer\images\slide\0.jpg" />
+    <Content Include="UILayer\images\slide\00.jpg" />
+    <Content Include="UILayer\images\slide\1.jpg" />
+    <Content Include="UILayer\images\slide\2.jpg" />
+    <Content Include="UILayer\images\slide\3.jpg" />
+    <Content Include="UILayer\images\slide\6.jpg" />
+    <Content Include="UILayer\images\slide\aerial.jpg" />
+    <Content Include="UILayer\images\slide\squared_metal.png" />
+    <Content Include="UILayer\images\yoga-concentrating.jpg" />
+    <Content Include="UILayer\Image_Master\animations.gif" />
+    <Content Include="UILayer\Image_Master\bg-separator.png" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\0FwgLGi25wG.png" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\0sTQzbapM8j%281%29.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\0sTQzbapM8j.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\41d000_1e88d6e5a80718b6fb61bf2deb4cc95b.png" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\41d000_4566bc07dd97543ff65c119f6d74a80b.png" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\71f65917c81585f32982a568c20df3ec.png" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\activityi%281%29.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\activityi.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\animate.min.css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\c7da2921-a5c2-426d-9611-16e0a1bdfd02.css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\celebration-photogra.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\fastbutton.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\fontFace.css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\fonts.css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\KkQTSUzuEkO.png" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\languages.css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\lightboxreset.css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\like.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\postmessageRelay.html" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\reset.css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\template_viewer.css" />
+    <Content Include="UILayer\Image_Master\contentbg.gif" />
+    <Content Include="UILayer\Image_Master\giphy %281%29.gif" />
+    <Content Include="UILayer\Image_Master\giphy.gif" />
+    <Content Include="UILayer\Image_Master\group-yoga.jpg" />
+    <Content Include="UILayer\Image_Master\icon-facebook.png" />
+    <Content Include="UILayer\Image_Master\icon-googleplus.png" />
+    <Content Include="UILayer\Image_Master\icon-pinterest.png" />
+    <Content Include="UILayer\Image_Master\icon-twitter.png" />
+    <Content Include="UILayer\Image_Master\icons.png" />
+    <Content Include="UILayer\Image_Master\instructor1.jpg" />
+    <Content Include="UILayer\Image_Master\instructor2.jpg" />
+    <Content Include="UILayer\Image_Master\instructor3.jpg" />
+    <Content Include="UILayer\Image_Master\instructor4.jpg" />
+    <Content Include="UILayer\Image_Master\lady-in-yoga.jpg" />
+    <Content Include="UILayer\Image_Master\leftbg.gif" />
+    <Content Include="UILayer\Image_Master\lying-yoga.jpg" />
+    <Content Include="UILayer\Image_Master\lying-yoga2.jpg" />
+    <Content Include="UILayer\Image_Master\mobile\bg-mobile.png" />
+    <Content Include="UILayer\Image_Master\mobile\mobile-close.png" />
+    <Content Include="UILayer\Image_Master\mobile\mobile-collapse.png" />
+    <Content Include="UILayer\Image_Master\mobile\mobile-expand.png" />
+    <Content Include="UILayer\Image_Master\mobile\mobile-menu.png" />
+    <Content Include="UILayer\Image_Master\skeleton-animated-gif-20.gif" />
+    <Content Include="UILayer\Image_Master\yoga-concentrating.jpg" />
+    <Content Include="UILayer\js\function.js" />
+    <Content Include="UILayer\js\jquery-1.10.2.min.js" />
+    <Content Include="UILayer\js\jquery-1.11.1.min.js" />
+    <Content Include="UILayer\js\main.js" />
+    <Content Include="UILayer\js\mobile.js" />
+    <Content Include="UILayer\js\modernizr-2.6.2.min.js" />
+    <Content Include="UILayer\js\plugins.js" />
+    <Content Include="UILayer\RestoreImages.aspx" />
+    <Content Include="UILayer\StyleSheet1.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin Reports.aspx.cs">
+      <DependentUpon>Admin Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin Reports.aspx.designer.cs">
+      <DependentUpon>Admin Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BAL\Common.cs" />
+    <Compile Include="DAL\SaveData.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Images\Registeration.aspx.cs">
+      <DependentUpon>Registeration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Images\Registeration.aspx.designer.cs">
+      <DependentUpon>Registeration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotFound.aspx.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotFound.aspx.designer.cs">
+      <DependentUpon>NotFound.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Survey.aspx.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Survey.aspx.designer.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UILayer\Master1.Master.cs">
+      <DependentUpon>Master1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UILayer\Master1.Master.designer.cs">
+      <DependentUpon>Master1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UILayer\RestoreImages.aspx.cs">
+      <DependentUpon>RestoreImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UILayer\RestoreImages.aspx.designer.cs">
+      <DependentUpon>RestoreImages.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="UILayer\Master1.Master" />
+    <Content Include="Admin\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\LocalPublish.pubxml" />
+    <Content Include="UILayer\fonts\fontawesome-webfont.eot" />
+    <Content Include="UILayer\fonts\fontawesome-webfont.ttf" />
+    <Content Include="UILayer\fonts\fontawesome-webfont.woff" />
+    <Content Include="UILayer\fonts\FontAwesome.otf" />
+    <Content Include="UILayer\fonts\lato-regular-webfont.eot" />
+    <Content Include="UILayer\fonts\lato-regular-webfont.ttf" />
+    <Content Include="UILayer\fonts\lato-regular-webfont.woff" />
+    <Content Include="UILayer\fonts\nixieone-regular-webfont.eot" />
+    <Content Include="UILayer\fonts\nixieone-regular-webfont.ttf" />
+    <Content Include="UILayer\fonts\nixieone-regular-webfont.woff" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\0271ff410d2eb1f73d408586f1bc5cdb.wix_mp" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\41d000_2c6a08aa86986ad9c5061029b7dc9314.webp" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\41d000_4d636a2b076bf37fe994ad5103fcbf9d.webp" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\704136006388169" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\770afd1fe2d3552b389caf59c7aac5f7.wix_mp" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\971028622-postmessagerelay.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\adminLoginButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\adoric.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\all.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\analytics.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\animations.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\audioCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\audioPlayer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\backgroundCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\backToTopButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\balata.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\bgImageStrip.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\bluebird.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\boxSlideShowSlide.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\buttonCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\cb=gapi%281%29.loaded_0" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\cb=gapi.loaded_0" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\cb=gapi.loaded_1" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\checkbox.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\clipArt.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\color.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\column.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\comboBoxInput.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\common.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\compDesignUtils.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\components.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\compUtils.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\contactForm.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\container.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\containerCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\conversion_async.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\core.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\coreUtils.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\coreUtils.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\css" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\custom-scrollbar.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\dataFixer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\datePicker.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\dc.js%281%29.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\dc.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\deadComponent.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\displayer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\disqusComments.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\documentMedia.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\DrawSVGPlugin.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\dropDownMenu.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\exitMobileModeButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\facebookComments.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\facebookLike.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\facebookLikeBox.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\facebookShare.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\fbevents.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\fileUploader.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\flashComponent.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\flickrBadgeWidget.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\fonts.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\footerContainer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\formCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\galleriesCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\googleMap.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\groupContainer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\gtm.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\hammer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\headerContainer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\hoverBox.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\htmlComponent.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\hvjksMzTj-I.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\image.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\imageButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\imageClientApi.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\imageClientApi.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\imageCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\imageZoom.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\imageZoomDisplayer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\infoTip.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\internalMarkings.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\itunesButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\jquery.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\layout.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\linkBar.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\lodash.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\loggingUtils.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\loginButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\loginSocialBar.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\main-r.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\matrixGallery.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mediaCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mediaContainerFactory.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mediaControls.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mediaPlayer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mediaZoom.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\menuButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\messageView.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mobileActionsMenu.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mobileLayoutUtils.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mobx-react.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mobx.umd.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\mousetrap.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\multilingual.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\page.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\pageGroup.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\paginatedGridGallery.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\paypalButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\pinItPinWidget.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\pinterestFollow.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\pinterestPinIt.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\platformUtils-bundle.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\plusone.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\pm-rpc.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\popupCloseTextButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\popupContainer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\quickActionBar.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\radioButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\radioGroup.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\react-dom-server.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\react-dom.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\react-with-addons.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\render.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\require.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\rpc-shindig_random.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\rs=AGLTcCPsQCtURR-qf07cNBKPps265Dv7Dg" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\rssButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\santaPreview.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\santaProps.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\screenWidthContainer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\scripts.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\ScrollToPlugin.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\singleAudioPlayer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\siteBackground.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\siteButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\siteUtils.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\skinExports.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\skins.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\skypeCallButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\sliderGallery.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\slideShowGallery.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\socialCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\soundCloudWidget.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\spotifyFollow.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\spotifyPlayer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\stripColumnsContainer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\stripContainer.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\stripSlideShow.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\stripSlideShowSlide.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\subscribeForm.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\svgCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\svgShape.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\swfobject.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\template_viewer.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\textArea.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\textCommon.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\textInput.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\tinyMenu.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\tpa.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\tpaGalleries.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\translationsUtils.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\tweenEngine.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\TweenMax.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\twitterFeed.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\utils.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\verticalAnchorsMenu.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\verticalMenu.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\video.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\vKShareButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wGooglePlusOne.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\widgets.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wixappsBuilder.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wixappsCore.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wixCodeInit.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wixSites.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wixSkinOnly.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wixUrlParser.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wPhoto.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wRichText.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wTwitterFollow.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\wTwitterTweet.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\xss.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\youTubeSubscribeButton.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\zepto.min.js.download" />
+    <Content Include="UILayer\Image_Master\Celebration Photography Website Template _ WIX_files\zoomedImage.min.js.download" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -70,10 +490,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BAL\" />
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

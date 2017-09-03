@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master1.master.cs" Inherits="Research_Project.UILayer.Master1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    
+    <meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Research Survey</title>
+	<link rel="stylesheet" type="text/css" href="css/styleMaster.css">
+	<link rel="stylesheet" type="text/css" href="css/mobileMaster.css">
+
+	<script type='text/javascript' src='js/mobile.js'></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id="header">
+            <ul style="display:inline">
+              
+                <li><h1><a href="index.html">Electronic Mental Rotations Test <span>Research Survey</span></a></h1></li>
+              
+            </ul>
+          
+		
+	<%--	<ul id="navigation">
+			<li class="current">
+				<a href="WebForm1.aspx">Home</a>
+			</li>
+			<%--<li>
+				<a href="about.html">About</a>
+			</li>
+			<li>
+				<a href="classes.html">Classes</a>
+				<ul>
+					<li>
+						<a href="instructors.html">Instructors</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="contact.html">Contact</a>
+			</li>
+			<li>
+				<a href="blog.html">Blog</a>
+			</li>
+		</ul>--%>
+	</div>
+        <div id="body">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </div>
+        <div id="footer">
+		<div>
+			<span>Rochester Hills,MI
+			
+				<%--&copy; <%=DateTime.Now.Year%> --%>&amp;. All rights reserved.
+			</span> 
+		</div>
+		<div id="connect">
+			
+		</div>
+	</div>
+
+    </div>
+    </form>
+</body>
+</html>

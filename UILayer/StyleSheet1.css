@@ -1,0 +1,19 @@
+﻿body {
+
+       
+    
+}
+
+#myclass {
+            background-color: Gray;
+            filter: alpha(opacity=50);
+            opacity: 0.2;
+
+}
+
+ #MasterDiv {
+            margin: 80px 80px 80px 80px;
+            border: 1px solid black;
+            
+            padding: 20px 30px 20px 20px;
+        }

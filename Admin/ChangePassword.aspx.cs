@@ -13,6 +13,8 @@ namespace Research_Project.Admin
 {
     public partial class ChangePassword : System.Web.UI.Page
     {
+        #region // Protected Functions
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,6 +27,12 @@ namespace Research_Project.Admin
             }
         }
 
+        /// <summary>
+        /// button click method
+        /// calling change user password function for validating
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSave_Click(object sender, EventArgs e)
         {
             if (ChangeUserPassword())
@@ -38,7 +46,16 @@ namespace Research_Project.Admin
             }
         }
 
+        #endregion
 
+        #region // Private functions
+
+        /// <summary>
+        ///  return a scalar value by validating credentials with database records
+        /// </summary>
+        /// <param name="SPName"></param>
+        /// <param name="SPParameters"></param>
+        /// <returns></returns>
         private bool ExecuteSP(string SPName, List<SqlParameter> SPParameters)
         {
             string CS = ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
@@ -62,37 +79,40 @@ namespace Research_Project.Admin
             if (Request.QueryString["uid"] != null)
             {
                 List<SqlParameter> paramList = new List<SqlParameter>()
-    {
-        new SqlParameter()
-        {
-            ParameterName = "@GUID",
-            Value = Request.QueryString["uid"]
-        }
-    };
+                {
+                    new SqlParameter()
+                    {
+                        ParameterName = "@GUID",
+                        Value = Request.QueryString["uid"]
+                    }
+                };
 
-                return ExecuteSP("spIsPasswordResetLinkValid", paramList);
-            }
-            else
-                return false;
-        }
+                            return ExecuteSP("spIsPasswordResetLinkValid", paramList);
+                        }
+                        else
+                            return false;
+          }
 
         private bool ChangeUserPassword()
         {
             List<SqlParameter> paramList = new List<SqlParameter>()
-    {
-        new SqlParameter()
-        {
-            ParameterName = "@GUID",
-            Value = Request.QueryString["uid"]
-        },
-        new SqlParameter()
-        {
-            ParameterName = "@Password",
-            Value = FormsAuthentication.HashPasswordForStoringInConfigFile(txtNewPassword.Text, "SHA1")
-        }
-    };
+                {
+                    new SqlParameter()
+                    {
+                        ParameterName = "@GUID",
+                        Value = Request.QueryString["uid"]
+                    },
+                    new SqlParameter()
+                    {
+                        ParameterName = "@Password",
+                        Value = FormsAuthentication.HashPasswordForStoringInConfigFile(txtNewPassword.Text, "SHA1")
+                    }
+                };
 
             return ExecuteSP("spChangePassword", paramList);
         }
+
+
+        #endregion
     }
 }

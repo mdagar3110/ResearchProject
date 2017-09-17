@@ -13,6 +13,9 @@ namespace Research_Project
 {
     public partial class Login : System.Web.UI.Page
     {
+
+        #region // Protected Methods
+     
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,13 +24,28 @@ namespace Research_Project
                 Session.Clear();
             }
         }
-
+        /// <summary>
+        /// Purpose: button click method and storing the username in session value
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             AuthenticateUser(txtUserName.Text, txtPassword.Text);
             Session["Uname"] = txtUserName.Text;
         }
 
+        #endregion
+
+        #region // Private Methods
+        
+        /// <summary>
+        /// this method validate our credentials with database records
+        /// this method is using form authentication and for more information refer Pragim tech.
+        /// for form authentication video
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         private void AuthenticateUser(string username, string password)
         {
             
@@ -70,8 +88,10 @@ namespace Research_Project
                         }
                     }
                 }
-           
-        
+
+
         }
+
+        #endregion
     }
 }

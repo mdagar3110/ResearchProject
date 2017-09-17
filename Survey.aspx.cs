@@ -11,17 +11,19 @@ namespace Research_Project
 {
     public partial class Survey : System.Web.UI.Page
     {
-      // this i variable is to count number of questions per attempt
+        // this i variable is to count number of questions per attempt
 
-        int CorrectAnswers = 0;
+        #region // Public functions
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                SessionOut();
+                SessionOut(); // if session out then redirect to login page
                 IsAnswerReset(Session["Uname"].ToString());
-                int i = 1;
-                ViewState["IValue"] = i; // to count the number of questions
+                int initialValue = 1; // Initial Question Value mentained in  view state
+                ViewState["IValue"] = initialValue; // to count the number of questions
                 btnTest.Visible = true;
                 pnlShowHide.Visible = false;
                 lblTimer.Visible = false;
@@ -33,6 +35,66 @@ namespace Research_Project
             CallTimer();
         }
 
+        protected void OKButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Login.aspx");
+        }
+
+        protected void btnTest_Click(object sender, EventArgs e)
+        {
+            BindImages(1);
+            pnlShowHide.Visible = true;
+            lblTimer.Visible = true;
+            btnTest.Visible = false;
+        }
+
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ViewState["CurrentTime"] = Session["time"];
+                int maxQuestion = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["maxQuestion"]);
+                if ((int)ViewState["IValue"] < maxQuestion)
+                {
+                    ViewState["QuestionNo"] = ViewState["IValue"];
+                    // i is the question number here 
+                    int i = (int)ViewState["IValue"] + 1;
+                    ViewState["IValue"] = i;
+                    SaveAnswer();
+                    BindImages(i);
+
+
+                }
+                else
+                {
+                    ViewState["QuestionNo"] = maxQuestion;
+                    ViewState["IValue"] = maxQuestion;// to keep the question number for last question
+                    SaveAnswer();
+                    string Message = "Congratulation!! You finished the Survey. </br> You scored is: ";
+                    ShowModelPopUp(Message, "complete");
+                }
+                // Session["lstanswers"] = lstAnswers;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;//Response.Redirect("~/NotFound.aspx", true);
+            }
+        }
+        #endregion
+
+        #region // Private functions
+
+
+        /// <summary>
+        /// Check if user already attempted the survey
+        /// </summary>
+        /// <param name="UserName"></param>
         private void IsAnswerReset(string UserName)
         {
             try
@@ -62,6 +124,7 @@ namespace Research_Project
 
             
         }
+    
         private void SessionOut()
         {
             if (string.IsNullOrEmpty(Session["Uname"] as string))
@@ -78,6 +141,11 @@ namespace Research_Project
 
         }
 
+        /// <summary>
+        /// converting int value to a time format
+        /// </summary>
+        /// <param name="time"></param>
+        /// <returns></returns>
         private string ConvertTimetoString(int time)
         {
             int seconds = time % 60;
@@ -90,7 +158,7 @@ namespace Research_Project
         {
             try
             {
-                // if=totalSeconds
+              // here 't' is the timer value
                 int t = Convert.ToInt32(Session["time"]);
                 string time = ConvertTimetoString(t);
                 if (t <= 30)// if seconds are less than 10
@@ -170,25 +238,25 @@ namespace Research_Project
                 if (chk1.Checked)//&& lstAnswers.Contains(1))
                 {
                     UserResponse += "A ";
-                    CorrectAnswers += 1;
+                  
                 }
                 if (chk2.Checked)// && lstAnswers.Contains(2))
                 {
                     UserResponse += "B ";
-                    CorrectAnswers += 1;
+                
                 }
                 if (chk3.Checked)// && lstAnswers.Contains(3))
                 {
                     UserResponse += "C ";
-                    CorrectAnswers += 1;
+                 
                 }
                 if (chk4.Checked)// && lstAnswers.Contains(4))
                 {
                     UserResponse += "D ";
-                    CorrectAnswers += 1;
+                  
                 }
                 string UName = Session["Uname"].ToString();
-                //  if (CorrectAnswers == 2)
+                
                 updateDataBase(UName, (int)ViewState["QuestionNo"], TimeStamp, ConvertListtoString(lstAnswers), UserResponse);
             }
             catch (Exception ex)
@@ -322,7 +390,8 @@ namespace Research_Project
                     }
                     recordnumber++;
 
-                } Session["lstanswers"] = lstAnswers;
+                } 
+                Session["lstanswers"] = lstAnswers;
             }
 
             catch (Exception ex)
@@ -331,47 +400,7 @@ namespace Research_Project
             }
         }
 
-        protected void btnTest_Click(object sender, EventArgs e)
-        {
-            BindImages(1);
-            pnlShowHide.Visible = true;
-            lblTimer.Visible = true;
-            btnTest.Visible = false;
-        }
-
-        protected void btnNext_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ViewState["CurrentTime"] = Session["time"];
-                // int maxQuestion =System.Configuration.ConfigurationManager.AppSettings["maxQuestion"];
-                if ((int)ViewState["IValue"] < 24)
-                {
-                    ViewState["QuestionNo"] = ViewState["IValue"];
-                    int i = (int)ViewState["IValue"] + 1;
-                    ViewState["IValue"] = i;
-                    SaveAnswer();
-                    BindImages(i);
-
-
-                }
-                else
-                {
-                    ViewState["QuestionNo"] = 24;
-                    ViewState["IValue"] = 24;// to keep the question number for last question
-                    SaveAnswer();
-                    string Message = "Congratulation!! You finished the Survey. </br> You scored is: ";
-                    ShowModelPopUp(Message, "complete");
-                }
-                // Session["lstanswers"] = lstAnswers;
-            }
-
-            catch (Exception ex)
-            {
-                  throw ex;//Response.Redirect("~/NotFound.aspx", true);
-            }
-        }
-
+      
         /// <summary>
         /// This Function call the Popup 
         /// Pass string message to the popup
@@ -433,16 +462,6 @@ namespace Research_Project
             }
         }
 
-        protected void OKButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Login.aspx");
-        }
-
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Login.aspx");
-        }
-      
-                  
+        #endregion
     }
 }

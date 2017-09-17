@@ -50,6 +50,8 @@ namespace Research_Project.Admin
             }
         }
 
+
+
         private void SendPasswordResetEmail(string ToEmail, string UserName, string UniqueId)
         {
             // MailMessage class is present is System.Net.Mail namespace
@@ -84,12 +86,7 @@ namespace Research_Project.Admin
                 SmtpServer.Send(mail);
 
                 txtUserName.Text = "";
-                //var client = new SmtpClient("smtp.gmail.com", 587)
-                //{
-                //    Credentials = new NetworkCredential("manishdagar@oakland.edu", "Yeswecan@123"),
-                //    EnableSsl = true
-                //};
-                //client.Send("manishdagar@oakland.edu", "manish.dagar3110@gmail.com", "test", "testbody");
+            
             }
             catch (Exception ex)
             {

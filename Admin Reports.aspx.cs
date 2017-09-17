@@ -15,6 +15,8 @@ namespace Research_Project
 {
     public partial class Admin_Reports : System.Web.UI.Page
     {
+        #region // Protected Functions
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,6 +27,93 @@ namespace Research_Project
 
         }
 
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Home.aspx");
+        }
+
+        protected void gvAdminReports_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvAdminReports.PageIndex = e.NewPageIndex;
+            BindGrid();
+        }
+
+        protected void btnExcelDownload_Click(object sender, EventArgs e)
+        {
+
+            DataTable dt = null;
+            try
+            {
+                dt = (DataTable)ViewState["dt_Excel"];
+
+                Response.Clear();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.xls");
+                Response.Charset = "";
+                Response.ContentType = "application/vnd.ms-excel";
+                using (StringWriter sw = new StringWriter())
+                {
+                    HtmlTextWriter hw = new HtmlTextWriter(sw);
+
+                    //To Export all pages
+                    gvAdminReports.AllowPaging = false;
+                    this.BindGrid();
+
+                    gvAdminReports.HeaderRow.BackColor = Color.White;
+                    foreach (TableCell cell in gvAdminReports.HeaderRow.Cells)
+                    {
+                        cell.BackColor = gvAdminReports.HeaderStyle.BackColor;
+                        cell.BorderColor = Color.Black;
+                        cell.BorderStyle = BorderStyle.Solid;
+                    }
+                    foreach (GridViewRow row in gvAdminReports.Rows)
+                    {
+                        row.BackColor = Color.White;
+
+                        foreach (TableCell cell in row.Cells)
+                        {
+                            if (row.RowIndex % 2 == 0)
+                            {
+                                cell.BackColor = gvAdminReports.AlternatingRowStyle.BackColor;
+                                cell.BorderColor = Color.Black;
+                                cell.BorderStyle = BorderStyle.Solid;
+                            }
+                            else
+                            {
+                                cell.BackColor = gvAdminReports.RowStyle.BackColor;
+                                cell.BorderColor = Color.Black;
+                                cell.BorderStyle = BorderStyle.Solid;
+                            }
+                            cell.CssClass = "textmode";
+                        }
+                    }
+
+                    gvAdminReports.RenderControl(hw);
+
+                    //style to format numbers to string
+                    string style = @"<style> .textmode { } </style>";
+                    Response.Write(style);
+                    Response.Output.Write(sw.ToString());
+                    Response.Flush();
+                    Response.End();
+                }
+            }
+
+
+            catch (Exception ex)
+            {
+                throw ex;//Response.Redirect("~/NotFound.aspx", true);
+            }
+            finally
+            {
+                dt = null;
+            }
+        }
+
+        #endregion
+
+        #region // Private methods
+        
         private void BindGrid()
         {
             try
@@ -65,89 +154,7 @@ namespace Research_Project
             }
         }
 
-        protected void btnHome_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Home.aspx");
-        }
-
-        protected void gvAdminReports_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvAdminReports.PageIndex = e.NewPageIndex;
-            BindGrid(); 
-        }
-
-        protected void btnExcelDownload_Click(object sender, EventArgs e)
-        {
-
-            DataTable   dt=null;
-            try
-            {
-             dt = (DataTable)ViewState["dt_Excel"];
-
-                        Response.Clear();
-                Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.xls");
-                Response.Charset = "";
-                Response.ContentType = "application/vnd.ms-excel";
-                using (StringWriter sw = new StringWriter())
-                {
-                    HtmlTextWriter hw = new HtmlTextWriter(sw);
- 
-                    //To Export all pages
-                    gvAdminReports.AllowPaging = false;
-                    this.BindGrid();
- 
-                    gvAdminReports.HeaderRow.BackColor = Color.White;
-                    foreach (TableCell cell in gvAdminReports.HeaderRow.Cells)
-                    {
-                        cell.BackColor = gvAdminReports.HeaderStyle.BackColor;
-                        cell.BorderColor = Color.Black;
-                        cell.BorderStyle = BorderStyle.Solid;
-                    }
-                    foreach (GridViewRow row in gvAdminReports.Rows)
-                    {
-                        row.BackColor = Color.White;
-                        
-                        foreach (TableCell cell in row.Cells)
-                        {
-                            if (row.RowIndex % 2 == 0)
-                            {
-                                cell.BackColor = gvAdminReports.AlternatingRowStyle.BackColor;
-                                cell.BorderColor = Color.Black;
-                                cell.BorderStyle = BorderStyle.Solid;
-                            }
-                            else
-                            {
-                                cell.BackColor = gvAdminReports.RowStyle.BackColor;
-                                cell.BorderColor = Color.Black;
-                                cell.BorderStyle = BorderStyle.Solid;
-                            }
-                            cell.CssClass = "textmode";
-                        }
-                    }
- 
-                    gvAdminReports.RenderControl(hw);
-           
-                    //style to format numbers to string
-                    string style = @"<style> .textmode { } </style>";
-                    Response.Write(style);
-                    Response.Output.Write(sw.ToString());
-                    Response.Flush();
-                    Response.End();
-                }
-             }
-
-            
-            catch (Exception ex)
-            {
-                  throw ex;//Response.Redirect("~/NotFound.aspx", true);
-            }
-            finally
-            {
-                dt = null;
-            }  
-        }
-
+        #endregion
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Verifies that the control is rendered */
